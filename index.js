@@ -15,7 +15,7 @@ const Grid = require("gridfs-stream");
 
 const PORT = process.env.PORT || 5000;
 const corsOptions = {
-    origin: "https://itsblogtime.herokuapp.com"
+    origin: "http://localhost:3000"
 };
 
 let gfs;
