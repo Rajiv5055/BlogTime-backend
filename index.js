@@ -37,6 +37,8 @@ app.use('/api/post', postRouter);
 app.use('/api/user', userRouter);
 app.use("/file", upload);
 
+app.get('/', (req, res)=> { res.send("It is working") })
+
 app.get("/file/:filename", async (req, res) => {
     try {
         const file = await gfs.files.findOne({ filename: req.params.filename });
@@ -56,6 +58,7 @@ app.delete("/file/:filename", async (req, res) => {
         res.send("An error occured.");
     }
 });
+
 
 app.listen(PORT, () => {
     console.log(`Server running on port: ${PORT}`);
