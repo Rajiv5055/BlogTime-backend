@@ -84,6 +84,18 @@ router.get("/:username", async (req, res) => {
     }
 });
 
+router.get("/:profile", async (req, res) => {   
+    try {
+        const user = await User.find({userId: req.params.profile});
+
+        res.status(200).json({
+            user: user[0]
+        });
+    } catch (error) {
+        res.status(500).json(error);
+    }
+});
+
 //User by username
 
 router.get("/", async (req, res) => {   
